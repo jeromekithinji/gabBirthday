@@ -283,6 +283,15 @@
   font-size: 0.95rem;
 }
 
+.puzzle-picker__mobile-warning {
+  margin: 0.35rem auto 0;
+  max-width: 60ch;
+  text-align: center;
+  color: #c62828;
+  font-size: 0.65rem;
+  line-height: 1.35;
+}
+
 .puzzle-picker__button {
   border: 1px solid #26667f;
   background: #ddf4e7;
@@ -328,6 +337,11 @@
   .puzzle-picker__hint {
     margin-top: 0.55rem;
     font-size: 0.9rem;
+  }
+
+  .puzzle-picker__mobile-warning {
+    margin-top: 0.3rem;
+    font-size: 0.6rem;
   }
 }
 

@@ -6,7 +6,7 @@ import './puzzle.scss'
 
 const MODAL_TITLE = 'Winner Winner 🥳🏅'
 const MODAL_MESSAGE =
-  'You put all the pieces together, so now it’s time for your reward…'
+  'Ayyyyyyyyy you see how you\'re a cutieee from day 1!! Your prize is..... 🥁'
 const MODAL_REWARD = 'A date night next week ✨'
 const MODAL_REWARD_DETAILS = 'Thursday 6:30pm, B12 Burgers St Catherine'
 const MODAL_EVENT_LOCATION = '1826 Rue Sainte-Catherine O\nMontreal, Quebec H3H 1M1'

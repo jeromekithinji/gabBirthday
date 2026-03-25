@@ -18,9 +18,9 @@ function App() {
   const difficultyConfig =
     puzzleDifficulty === 'easy'
       ? { rows: 2, columns: 3 }
-      : puzzleDifficulty === 'hard'
-        ? { rows: 4, columns: 5 }
-        : { rows: 3, columns: 4 }
+      : puzzleDifficulty === 'medium'
+        ? { rows: 3, columns: 4 }
+        : { rows: 4, columns: 5 }
 
   return (
     <>
@@ -40,7 +40,7 @@ function App() {
 
       <div className='puzzle-reveal'>
         <section className='puzzle-picker'>
-          <h2 className='puzzle-picker__title'>Complete the Memory</h2>
+          <h2 className='puzzle-picker__title'>Complete the Puzzle</h2>
           <p className='puzzle-picker__subtitle'>
             Rebuild the picture piece by piece to unlock a special birthday treat.
           </p>
@@ -57,11 +57,13 @@ function App() {
             <button
               type='button'
               className={`puzzle-picker__button${
-                puzzleDifficulty === 'okay' ? ' puzzle-picker__button--active' : ''
+                puzzleDifficulty === 'medium'
+                  ? ' puzzle-picker__button--active'
+                  : ''
               }`}
-              onClick={() => setPuzzleDifficulty('okay')}
+              onClick={() => setPuzzleDifficulty('medium')}
             >
-              Okay
+              Medium
             </button>
             <button
               type='button'
@@ -75,6 +77,9 @@ function App() {
           </div>
           <p className='puzzle-picker__hint'>
             Drag and drop the pieces to complete the image.
+          </p>
+          <p className='puzzle-picker__mobile-warning'>
+            ⚠️May glitch on mobile phone, best is laptop⚠️
           </p>
         </section>
 
