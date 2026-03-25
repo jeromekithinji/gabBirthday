@@ -1,0 +1,196 @@
+.balloon {
+	width: 100%;
+	min-height: 100vh;
+	min-height: 100svh;
+	min-height: 100dvh;
+	display: flex;
+	padding: 2rem 1rem;
+	background:
+		radial-gradient(circle at 14% 12%, rgba(103, 192, 144, 0.2), transparent 36%),
+		radial-gradient(circle at 86% 16%, rgba(38, 102, 127, 0.2), transparent 34%),
+		#ddf4e7;
+
+	&__content {
+		width: 100%;
+		max-width: 960px;
+		margin: 0 auto;
+	}
+
+	&__title {
+		margin: 0;
+		text-align: center;
+		color: #124170;
+	}
+
+	&__subtitle {
+		margin: 0.5rem 0 1.5rem;
+		text-align: center;
+		color: #26667f;
+	}
+
+	&__love-prompt {
+		margin: -0.15rem 0 0.45rem;
+		text-align: center;
+		font-size: 0.6rem;
+		font-style: italic;
+		color: #124170;
+		opacity: 0.85;
+		animation: balloon-love-pulse 1.25s ease-in-out infinite;
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem 0.75rem;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		min-height: 180px;
+		min-width: 0;
+	}
+
+	&__bubble {
+		width: 92px;
+		height: 118px;
+		border: none;
+		border-radius: 54% 54% 48% 48%;
+		background: var(--balloon-color);
+		cursor: pointer;
+		position: relative;
+		box-shadow: inset -14px -12px 0 rgba(0, 0, 0, 0.12);
+		transition: transform 180ms ease, opacity 180ms ease;
+	}
+
+	&__bubble::before {
+		content: '';
+		position: absolute;
+		top: 14px;
+		left: 18px;
+		width: 16px;
+		height: 24px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.36);
+		transform: rotate(20deg);
+	}
+
+	&__bubble::after {
+		content: '';
+		position: absolute;
+		left: calc(50% - 1px);
+		bottom: -56px;
+		width: 2px;
+		height: 56px;
+		background: #26667f;
+	}
+
+	&__knot {
+		position: absolute;
+		left: calc(50% - 6px);
+		bottom: -12px;
+		width: 12px;
+		height: 12px;
+		background: var(--balloon-color);
+		transform: rotate(45deg);
+	}
+
+	&__number {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 1rem;
+		font-weight: 700;
+		color: #fff;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+		pointer-events: none;
+	}
+
+	&__bubble:hover {
+		transform: translateY(-4px);
+	}
+
+	&__bubble--popped {
+		animation: pop 210ms ease-out forwards;
+	}
+
+	&__message {
+		margin: 0;
+		opacity: 0;
+		transform: translateY(6px);
+		transition: opacity 220ms ease, transform 220ms ease;
+		text-align: center;
+		font-weight: 600;
+		color: #124170;
+		max-width: 100%;
+		min-height: 2.25rem;
+		font-size: 0.8rem;
+		overflow-wrap: break-word;
+	}
+
+	&__message--visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes pop {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	40% {
+		transform: scale(1.12);
+	}
+
+	100% {
+		transform: scale(0.1);
+		opacity: 0;
+	}
+}
+
+@media (min-width: 768px) {
+	.balloon {
+		&__grid {
+			grid-template-columns: repeat(5, minmax(0, 1fr));
+			gap: 1.25rem 0.75rem;
+		}
+	}
+}
+
+@media (max-width: 420px) {
+	.balloon {
+		&__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.balloon {
+		&__love-prompt {
+			animation: none;
+		}
+	}
+}
+
+@keyframes balloon-love-pulse {
+	0% {
+		transform: scale(1);
+		opacity: 0.72;
+	}
+
+	50% {
+		transform: scale(1.06);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 0.72;
+	}
+}
